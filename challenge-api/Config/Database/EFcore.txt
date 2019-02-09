@@ -1,0 +1,9 @@
+﻿// Docs : https://docs.microsoft.com/en-us/ef/core/get-started/aspnetcore/existing-db
+Scaffold-DbContext "Server=.\MSSQLDEFAULT;Database=CHALLENGE;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database/Models
+
+// Update database/models
+Scaffold-DbContext "Server=.\MSSQLDEFAULT,1433;Initial Catalog=CHALLENGE;Persist Security Info=False;User ID=<user id>;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Database/Models -force
+
+// Connection strings : https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
+// Configure DbContext : https://docs.microsoft.com/en-us/ef/core/miscellaneous/configuring-dbcontext
+// Asp.NET Core Routing : https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-2.2
