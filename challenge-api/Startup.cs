@@ -25,13 +25,11 @@ namespace challenge_api {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // docs - Format response data : https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/formatting?view=aspnetcore-2.2
-            services.AddMvc(options =>
-            {
+            services.AddMvc(options => {
                 options.RespectBrowserAcceptHeader = true; // false by default
             });
 
-            services.AddMvc(options =>
-            {
+            services.AddMvc(options => {
                 // options.InputFormatters.Insert(0, new VcardInputFormatter());
                 options.OutputFormatters.Insert(0, new VcardOutputFormatter());
             });
