@@ -118,9 +118,17 @@ namespace challenge_api.Controllers {
 
         #region DELETEs
 
-        [HttpDelete("{id}")]
-        public void Delete(int id) {
+        [HttpPut("[action]/{id}")]
+        public ActionResult Delete([FromRoute] int id)
+        {
             // To Do - Pending
+            validateModelFromRequest(id);
+            if (ModelState.IsValid)
+                using (var context = DBContext())
+                {
+                    context.Database.ExecuteSqlCommand($"DeleteBusinessEntity {id}");
+                }
+            return Ok($"Request Completed");
         }
 
         #endregion
